@@ -11,11 +11,6 @@ int ledPalangmerah = 9;
 int ledPalanghijau = 8;
 int buzzer = 10;
 
-int sensorHujan = A0;
-int ledHujan = 6;
-int buzzer1 = 5;
-int valueHujan;
-
 void setup() {
   pinMode(ledPalangmerah, OUTPUT);
   pinMode(ledPalanghijau, OUTPUT);
@@ -25,10 +20,6 @@ void setup() {
 
   myServo.attach(7); // Attach servo to pin 7
   myServo.write(0);  // Set servo to initial position
-
-  pinMode(A0, INPUT);
-  pinMode(ledHujan, OUTPUT);
-  pinMode(buzzer1, OUTPUT);
 }
 
 void loop() {
@@ -56,13 +47,3 @@ void loop() {
 
   myServo.write(angle);
   delay(500); 
-
-  valueHujan = analogRead(sensorHujan);
-  if (valueHujan < 100){
-    digitalWrite(ledHujan, HIGH);
-    tone(buzzer1,1000);  
-  } else {
-    digitalWrite (ledHujan, LOW);
-    noTone(buzzer1);
-  } 
-}
